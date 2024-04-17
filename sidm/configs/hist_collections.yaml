@@ -18,6 +18,12 @@ photon_base: &photon_base
   - "photon_n"
   - "photon_pt"
   - "photon_eta_phi"
+  
+photon_extra: &photon_extra #New Stuff Here
+- "photon_HOverE"
+-  "photon_SigmaEtaEta"
+-  "photon_PhoAnyPFIsoWithEAAndQuadScalingCut_0"
+-  "photon_PhoAnyPFIsoWithEACut_1"
 
 muon_base: &muon_base
   - "muon_n"

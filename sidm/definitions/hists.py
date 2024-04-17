@@ -82,6 +82,45 @@ hist_defs = {
                                                               objs["genAs_toE"]) < 0.5])),
         ],
     ),
+    
+    
+    
+    
+    
+    
+     # photons
+    
+    "photon_HOverE" : h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(400, 0, 1.5, name="photon_HOverE"), 
+                   lambda objs, mask: objs["photons"].pt), #supposed to use .pt???
+        ],
+    ),
+    
+    "photon_SigmaEtaEta" : h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(400, 0, .1, name="photon_SigmaEtaEta"), 
+                   lambda objs, mask: objs["photons"].pt), #supposed to use .pt???
+        ],
+    ),
+    
+     "photon_PhoAnyPFIsoWithEAAndQuadScalingCut_0" : h.Histogram(  ###NAming???
+        [
+            h.Axis(hist.axis.Regular(200, 0, 150, name="photon_PhoAnyPFIsoWithEAAndQuadScalingCut_0"), 
+                   lambda objs, mask: objs["photons"].pt), #supposed to use .pt???
+        ],
+    ),
+    
+    "photon_PhoAnyPFIsoWithEACut_1" : h.Histogram(   ###NAming???
+        [
+            h.Axis(hist.axis.Regular(200, 0, 270, name="photon_PhoAnyPFIsoWithEACut_1"), 
+                   lambda objs, mask: objs["photons"].pt), #supposed to use .pt???
+        ],
+    ),
+    
+    
+    
+    
     # pfelectron-genA
     "electron_nearGenA_n_genA_lxy": h.Histogram(
         [
@@ -1234,4 +1273,6 @@ hist_defs = {
         ],
         evt_mask=lambda objs: (ak.num(objs["muons"]) > 0)
     ),
+    
+    "newHistogramHere"
 }
