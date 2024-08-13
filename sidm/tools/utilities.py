@@ -78,9 +78,13 @@ def matched(obj1, obj2, r):
     """Return set of obj1 that have >=1 obj2 within r; remove None entries before returning"""
     return drop_none(obj1[dR(obj1, obj2) < r])
 
+#def lxy(obj):
+#    """Return transverse distance between production and decay vertices"""
+#    return (obj - ak.firsts(obj.children)).r
+
 def lxy(obj):
     """Return transverse distance between production and decay vertices"""
-    return (obj - ak.firsts(obj.children)).r
+    return (obj.dauvtx - obj.vtx).r
 
 def rho(obj, ref=None):
     """Return transverse distance between object and reference (default reference is 0,0)"""

@@ -133,6 +133,174 @@ baseNoLj_veryDisplacedA: &baseNoLj_veryDisplacedA
       - "lxy >= 100 cm"
     genAs_toMu:
       - "lxy >= 100 cm"
+#Selections for photon electron overlap studies
+#Selections for photon overlap studies
+AllEvts_ElectronVetoPhotons: &2mu2e_EV
+  obj_cuts: 
+    pvs: 
+      - "ndof > 4"
+      - "|z| < 24 cm"
+      - "|rho| < 0.02 cm"
+    muons: 
+      - "looseID"
+      - "pT > 5 GeV"
+      - "|eta| < 2.4"
+    dsaMuons: 
+      - "pT > 10 GeV"
+      - "|eta| < 2.4"
+      - "DT + CSC hits > 12"
+      - "ifcsczero"
+      - "normChi2 < 2.5"
+      - "ptErrorOverPT < 1"
+      - "no PF match" 
+    electrons:  
+      - "pT > 10 GeV"
+      - "|eta| < 2.4"
+      - "looseID"
+    photons: 
+      - "electronVeto"
+      - "pT > 20 GeV"
+      - "|eta| < 2.5"
+      - "looseID"
+  lj_cuts:
+    - "pT > 30 GeV"
+    - "|eta| < 2.4"
+  evt_cuts: 
+    - "Keep all evts"
+
+AllEvts_ElectronVetoPhotonsOrIsoPhotons: &2mu2e_EV_near
+  obj_cuts: 
+    pvs: 
+      - "ndof > 4"
+      - "|z| < 24 cm"
+      - "|rho| < 0.02 cm"
+    muons: 
+      - "looseID"
+      - "pT > 5 GeV"
+      - "|eta| < 2.4"
+    dsaMuons: 
+      - "pT > 10 GeV"
+      - "|eta| < 2.4"
+      - "DT + CSC hits > 12"
+      - "ifcsczero"
+      - "normChi2 < 2.5"
+      - "ptErrorOverPT < 1"
+      - "no PF match" 
+    electrons:  
+      - "pT > 10 GeV"
+      - "|eta| < 2.4"
+      - "looseID"
+    photons: 
+      - "electronVeto or far away from electrons"
+      - "pT > 20 GeV"
+      - "|eta| < 2.5"
+      - "looseID"
+  lj_cuts:
+    - "pT > 30 GeV"
+    - "|eta| < 2.4"
+  evt_cuts: 
+    - "Keep all evts"
+      
+AllEvts_PixelSeedPhotons: &2mu2e_PS
+  obj_cuts: 
+    pvs: 
+      - "ndof > 4"
+      - "|z| < 24 cm"
+      - "|rho| < 0.02 cm"
+    muons: 
+      - "looseID"
+      - "pT > 5 GeV"
+      - "|eta| < 2.4"
+    dsaMuons: 
+      - "pT > 10 GeV"
+      - "|eta| < 2.4"
+      - "DT + CSC hits > 12"
+      - "ifcsczero"
+      - "normChi2 < 2.5"
+      - "ptErrorOverPT < 1"
+      - "no PF match" 
+    electrons:  
+      - "pT > 10 GeV"
+      - "|eta| < 2.4"
+      - "looseID"
+    photons: 
+      - "pixelSeedVeto"
+      - "pT > 20 GeV"
+      - "|eta| < 2.5"
+      - "looseID"
+  lj_cuts:
+    - "pT > 30 GeV"
+    - "|eta| < 2.4"
+  evt_cuts: 
+    - "Keep all evts"
+      
+AllEvts_PixelSeedPhotonsOrIsoPhotons: &2mu2e_PS_near
+  obj_cuts: 
+    pvs: 
+      - "ndof > 4"
+      - "|z| < 24 cm"
+      - "|rho| < 0.02 cm"
+    muons: 
+      - "looseID"
+      - "pT > 5 GeV"
+      - "|eta| < 2.4"
+    dsaMuons: 
+      - "pT > 10 GeV"
+      - "|eta| < 2.4"
+      - "DT + CSC hits > 12"
+      - "ifcsczero"
+      - "normChi2 < 2.5"
+      - "ptErrorOverPT < 1"
+      - "no PF match" 
+    electrons:  
+      - "pT > 10 GeV"
+      - "|eta| < 2.4"
+      - "looseID"
+    photons: 
+      - "pixelSeedVeto or far away from electrons"
+      - "pT > 20 GeV"
+      - "|eta| < 2.5"
+      - "looseID"
+  lj_cuts:
+    - "pT > 30 GeV"
+    - "|eta| < 2.4"
+  evt_cuts: 
+    - "Keep all evts"
+    
+AllEvts_AllLoosePhotons: &2mu2e_allpho
+  obj_cuts: 
+    pvs: 
+      - "ndof > 4"
+      - "|z| < 24 cm"
+      - "|rho| < 0.02 cm"
+    muons: 
+      - "looseID"
+      - "pT > 5 GeV"
+      - "|eta| < 2.4"
+    dsaMuons: 
+      - "pT > 10 GeV"
+      - "|eta| < 2.4"
+      - "DT + CSC hits > 12"
+      - "ifcsczero"
+      - "normChi2 < 2.5"
+      - "ptErrorOverPT < 1"
+      - "no PF match" 
+    electrons:  
+      - "pT > 10 GeV"
+      - "|eta| < 2.4"
+      - "looseID"
+    photons: 
+      - "pT > 20 GeV"
+      - "|eta| < 2.5"
+      - "looseID"
+  lj_cuts:
+    - "pT > 30 GeV"
+    - "|eta| < 2.4"
+  evt_cuts: 
+    - "Keep all evts"
+
+      
+      
 # Selections for electrons only
 # All reco electrons in the barrel
 barrelE: &barrelE

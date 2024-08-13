@@ -103,6 +103,15 @@ obj_cut_defs = {
         "|eta| < 2.5": lambda objs: abs(objs["photons"].eta) < 2.5, # fixme: do we want eta or scEta
         #Loose ID = bit 0
         "looseID": lambda objs: objs["photons"].cutBased == 2,
+        #Cuts to remove overlaps with electrons
+        "pixelSeedVeto": lambda objs: ~objs["photons"].pixelSeed, #Require that photons do NOT have a pixel seed
+        "electronVeto": lambda objs: objs["photons"].electronVeto, #True means the photon *passes* the veto, so we should keep it
+        #Keep photons that pass one of the vetos or are far away from electrons anyway
+        "pixelSeedVeto or far away from electrons": lambda objs: ((ak.fill_none(dR(objs["photons"], objs["electrons"]), 90) > 0.4 ) 
+                                                                  | ~objs["photons"].pixelSeed), 
+        "electronVeto or far away from electrons": lambda objs:  ((ak.fill_none(dR(objs["photons"], objs["electrons"]), 90) > 0.4 ) 
+                                                                  | objs["photons"].electronVeto),
+
     },
     "dsaMuons": {
         "pT > 10 GeV": lambda objs: objs["dsaMuons"].pt > 10,
@@ -122,7 +131,7 @@ obj_cut_defs = {
 
 evt_cut_defs = {
     # This following will be True for every event. There's probably a more intuitive way to do this
-    "Keep all evts": lambda objs: objs["pvs"].npvs >= 0,
+    "Keep all evts": lambda objs: ak.num(objs["pvs"]) >= 0,
     ">=1 muon": lambda objs: ak.num(objs["muons"]) >= 1,
     "PV filter": lambda objs: ak.num(objs["pvs"]) >= 1,
     #"Cosmic veto": lambda objs: objs["cosmicveto"].result,
