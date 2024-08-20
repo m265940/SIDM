@@ -9,6 +9,22 @@ llpNanoAOD_v2_merged:
       files:
       - SIDM_BsTo1DpTo2Mu2e_MBs-500_MDp-5p0_ctau-0p08.root
       path: dlee3/V2/      
+    2mu2e_500GeV_5GeV_0p8mm:
+      files:
+      - SIDM_BsTo2DpTo2Mu2e_MBs-500_MDp-5p0_ctau-0p8.root
+      path: dlee3/V2/      
+    2mu2e_500GeV_5GeV_8p0mm:
+      files:
+      - SIDM_BsTo2DpTo2Mu2e_MBs-500_MDp-5p0_ctau-8p0.root
+      path: dlee3/V2/      
+    2mu2e_500GeV_5GeV_40p0mm:
+      files:
+      - SIDM_BsTo2DpTo2Mu2e_MBs-500_MDp-5p0_ctau-40p0.root
+      path: dlee3/V2/      
+    2mu2e_500GeV_5GeV_80p0mm:
+      files:
+      - SIDM_BsTo2DpTo2Mu2e_MBs-500_MDp-5p0_ctau-80p0.root
+      path: dlee3/V2/      
  
 
 llpNanoAOD_v2:
